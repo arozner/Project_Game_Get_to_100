@@ -1,0 +1,70 @@
+body{
+  background-color: #C1CCA2;
+}
+.registration{
+  background-color: rgb(148, 110, 183);
+  width: 200px;
+}
+button {
+  background-color: #61DAFB;
+  color: rgb(30, 11, 237);
+  padding: 10px 15px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+  width: 70px;
+  height: 70px;
+}
+button:hover {
+  background-color: #4FA3D1;
+}
+.banner{
+  height: 100px;
+text-align: center;
+}
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.players-container{
+  width: 1000px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-auto-rows: auto auto;
+}
+.players-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.player-board {
+  border: 3px solid #251CD3;
+  text-align: center;
+  border-radius: 5%;
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+}
+h1{
+  color: aqua;
+}
+.quit{
+  width: 200px;
+  background-color: rgb(208, 76, 102);
+}
+.startgame{
+ width: 200px;
+ background-color: rgb(237, 152, 100);
+}
+.current-player {
+  background-color: rgb(96, 210, 86);
+}
+.inactive-player {
+  background-color: #ccc;
+}
