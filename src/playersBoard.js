@@ -14,17 +14,15 @@ export default function PlayersBoard({ arrActivePlayers, setArrActivePlayers, is
         const first = playerCalls.firstPlayer;
         const next = playerCalls.nextPlayer;
         if (playerCalls.number === target) {
-            localStorage.setItem(playerCalls.playerName, JSON.stringify([...(JSON.parse(localStorage.getItem(playerCalls.playerName))), playerCalls.numberMoves]));
-            arrActivePlayers.map(player => {
+            const playerName = playerCalls.playerName;
+            const playerScores = JSON.parse(localStorage.getItem(playerName)) || [];
+            localStorage.setItem(playerName, JSON.stringify([...playerScores, playerCalls.numberMoves]));
+            arrActivePlayers.forEach(player => {
                 if (player.playerName === first.playerName) {
                     player.nextPlayer = next;
-                }
-                else if (player.playerName === next.playerName) {
+                } else if (player.playerName === next.playerName) {
                     player.firstPlayer = first;
-                }
-                else if (player.playerName === playerCalls.playerName) {
-                    const playerScores = JSON.parse(localStorage.getItem(playerCalls.playerName));
-                    playerCalls.scores = playerScores;
+                } else if (player.playerName === playerName) {
                     player.firstPlayer = playerCalls;
                     player.nextPlayer = playerCalls;
                 }
@@ -54,9 +52,10 @@ export default function PlayersBoard({ arrActivePlayers, setArrActivePlayers, is
     const newGame = () => {
         const length = arrActivePlayers.length;
         setIsRoundOver(false);
-        arrActivePlayers.map((player, idx) => {
+        arrActivePlayers.forEach((player, idx) => {
             player.number = Math.floor(Math.random() * target);
             player.numberMoves = 0;
+            player.scores = JSON.parse(localStorage.getItem(player.playerName)) || [];
             player.firstPlayer = arrActivePlayers[(idx + (length - 1)) % length];
             player.nextPlayer = arrActivePlayers[(idx + 1) % length];
         })
@@ -94,15 +93,3 @@ export default function PlayersBoard({ arrActivePlayers, setArrActivePlayers, is
             </div>}
     </div>
 }
-
-
-
-
-
-
-
-
-
-
-
-
