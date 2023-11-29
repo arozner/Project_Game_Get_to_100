@@ -11,7 +11,7 @@ function App() {
         playerName: name,
         nextPlayer: {},
         firstPlayer: {},
-        number: Infinity,
+        number: "",
         numberMoves: 0,
         scores: JSON.parse(localStorage.getItem(name)),
         victories: JSON.parse(localStorage.getItem(name)).length
